@@ -12,8 +12,8 @@ function Tab2({data}) {
                     {/*    <use xlink:href="#sunny"></use>*/}
                     {/*</svg>*/}
                 </div>
-                <div className="temperature vertical">
-                    {data.main.temp}<span className="degrees">&deg;C</span>
+                <div className="temperature">
+                    {data.main.temp}&deg;C
                 </div>
                 <div className="content">
                     <div className="precipitation">

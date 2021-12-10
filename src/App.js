@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import Tab1 from "./component/Tab1";
 import Tab2 from "./component/Tab2";
 import Tab3 from "./component/Tab3";
+import Tab4 from "./component/Tab4";
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
         const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`
 
         async function get_weather() {
-            console.log(URL)
+            // console.log(URL)
             fetch(URL)
                 .then(res => res.json())
                 .then(data => setResponse(data))
@@ -29,21 +30,22 @@ function App() {
     }, [])
     useEffect(() => {
         if (response) {
-        const weatherIcon = response.weather[0].icon;
-        const ICON_URL = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`
-        setIcon(ICON_URL);
+            const weatherIcon = response.weather[0].icon;
+            const ICON_URL = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`
+            setIcon(ICON_URL);
         }
     }, [response])
 
     return (
         <div className="wrapper">
-            {console.log(response)}
+            {/*{console.log(response)}*/}
             {/*<img src={icon} alt="icon"/>*/}
             {response && (
                 <>
                     <Tab1 data={response}/>
                     <Tab2 data={response}/>
                     <Tab3 data={response} icon={icon}/>
+                    <Tab4 data={response}/>
                 </>
             )}
 
